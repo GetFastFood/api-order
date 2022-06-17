@@ -8,7 +8,7 @@ let orderController = {
 
     async getAllOrders(req, res) {
         try {
-            let ord = await order.find();
+            let ord = await order.find().sort({ created: -1 });
             send.sendData(res, ord);
         } catch (error) {
             send.sendError(res, error);
@@ -17,7 +17,8 @@ let orderController = {
 
     async getOrder(req, res) {
         try {
-            let ord = await order.findById(req.params.id);
+
+            let ord = await order.findById(req.params.id).sort({ created: -1 });
             send.sendData(res, ord);
         } catch (error) {
             send.sendError(res, error);
@@ -44,7 +45,7 @@ let orderController = {
 
     async getOrderByClient(req, res) {
         try {
-            let ord = await order.find({user: req.params.id });
+            let ord = await order.find({user: req.params.id }).sort({ created: -1 });
             send.sendData(res, ord);
         } catch (error) {
             send.sendError(res, error);
@@ -53,7 +54,7 @@ let orderController = {
 
     async getOrderByDelivery(req, res) {
         try {
-            let ord = await order.find({delivery: req.params.id });
+            let ord = await order.find({delivery: req.params.id }).sort({ created: -1 });
             send.sendData(res, ord);
         } catch (error) {
             send.sendError(res, error);
@@ -62,7 +63,7 @@ let orderController = {
 
     async getOrderByRestaurant(req, res) {
         try {
-            let ord = await order.find({ restaurant: mongoose.Types.ObjectId(req.params.id) });
+            let ord = await order.find({ restaurant: mongoose.Types.ObjectId(req.params.id) }).sort({ created: -1 });
             send.sendData(res, ord);
         } catch (error) {
             send.sendError(res, error);
