@@ -22,14 +22,8 @@ const order_schema = new Schema({
         ref: 'Restaurant'
     },
     price: Array,
-    article: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Article'
-    }],
-    menu: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Menu'
-    }],
+    menus: Array,
+    article: Array,
     versionKey: false,
 });
 
