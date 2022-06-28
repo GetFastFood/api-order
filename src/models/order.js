@@ -17,11 +17,8 @@ const order_schema = new Schema({
         type: Boolean,
         default: null
     },
-    restaurant: {
-        type: Schema.Types.ObjectId,
-        ref: 'Restaurant'
-    },
-    price: Array,
+    restaurant: String,
+    price: String,
     menus: Array,
     article: Array,
     versionKey: false,
