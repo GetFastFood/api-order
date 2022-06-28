@@ -18,7 +18,7 @@ const order_schema = new Schema({
         default: null
     },
     restaurant: String,
-    price: String,
+    price: Number,
     menus: Array,
     article: Array,
     versionKey: false,
