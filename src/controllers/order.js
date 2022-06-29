@@ -63,7 +63,7 @@ let orderController = {
 
     async getOrderByRestaurant(req, res) {
         try {
-            let ord = await order.find({ restaurant: mongoose.Types.ObjectId(req.params.id) }).sort({ created: -1 });
+            let ord = await order.find({ restaurant: req.params.id }).sort({ created: -1 });
             send.sendData(res, ord);
         } catch (error) {
             send.sendError(res, error);
