@@ -7,7 +7,7 @@ const order_schema = new Schema({
     address: String,
     created: {
         type: Date,
-        default: new Date(),
+        default: Date.now
     },
     status: {
         type: String,
